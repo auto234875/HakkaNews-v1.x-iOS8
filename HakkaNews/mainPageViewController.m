@@ -7,10 +7,13 @@
 //
 
 #import "mainPageViewController.h"
+#import "CommentsViewController.h"
 #import "HNPost.h"
 #import "HNManager.h"
 #import "POP/POP.h"
 #import "FoldingView.h"
+#import "UIColor+Colours.h"
+#import "postCell.h"
 
 @interface mainPageViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (strong,nonatomic)NSMutableArray *readPost;
@@ -22,25 +25,21 @@
 @property(nonatomic)BOOL limitReached;
 @property (nonatomic, strong)NSIndexPath *selectedIndexPath;
 @property (nonatomic, strong)NSIndexPath *upvoteIndexPath;
+@property(nonatomic,strong)NSMutableArray *comments;
 @end
 
 @implementation mainPageViewController
-- (void)setupTableViewBackgroundColor {
-    self.tableView.backgroundColor=[UIColor snowColor];
-}
 - (void)registerForNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupLoggedIn) name:@"userIsLoggedIn" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupNotLoggedIn) name:@"userIsNotLoggedIn" object:nil];
 }
--(void)setupLoggedIn{
-    
-}
--(void)setupNotLoggedIn{
-    
-}
 -(void)viewDidLoad{
     [super viewDidLoad];
+    [self initialUserSetup];
+    self.tableView.backgroundColor=[UIColor snowColor];
     self.postType=@"Top";
+    [self getStories];
+    self.limitReached=NO;
     [self.tableView reloadData];
 }
 - (void)initialUserSetup {
@@ -228,9 +227,85 @@
                     
                 }];
             }}}
-    
-    
-    
 }
+-(void)setupLoggedIn{
+    //setup control for user
+    self.userIsLoggedIn=YES;
+}
+-(void)setupNotLoggedIn{
+    //remove control no user
+    self.userIsLoggedIn=NO;
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    HNPost *post=[self.currentPosts objectAtIndex:self.selectedIndexPath.row];
+    [self saveTheListOfReadPost];
+    if ([segue.identifier isEqualToString:@"showComment"]) {
+        [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+        
+        CommentsViewController *cvc=segue.destinationViewController;
+        //The post that we comment reply to
+        cvc.replyPost = post;
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //get the indexpath of the selected cell so we can perform segue
+    self.selectedIndexPath = indexPath;
+    //retrieve the corresponding post
+    HNPost *post=[self.currentPosts objectAtIndex:indexPath.row];
+    //add it to the the list of read posts
+    [self.readPost addObject:post.PostId];
+    //if the post is default, we go to the webpage
+    if (post.Type == PostTypeDefault){
+        //[self performSegueWithIdentifier:@"showPostContent" sender:self];
+        [self showStory];
+    }
+    //if the post is ask, we show the comment because AskHN is always self-post on HN
+    else if (post.Type == PostTypeAskHN){
+        [self performSegueWithIdentifier:@"showComment" sender:self];
+        
+    }
+    //if it is a job post, we have to load the comment and check to see if it is self post or from a webpage
+    else if (post.Type== PostTypeJobs){
+        [[HNManager sharedManager] loadCommentsFromPost:post completion:^(NSArray *comments) {
+            //getting the first comment and checking if the string is empty
+            //the string is NEVER nil
+            HNComment *firstComment = [comments firstObject];
+            if (![firstComment.Text isEqualToString:@""]) {
+                if (self.comments) {
+                    self.comments = [comments mutableCopy];}
+                else{
+                    self.comments = [NSMutableArray arrayWithArray:comments];}
+                [self performSegueWithIdentifier:@"showComment" sender:self];}
+            else {
+                [self showStory];
+            }
+            
+            
+        }];}
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    postCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    [self configureCell:cell forRowAtIndexPath:indexPath];
+    cell.backgroundColor=[UIColor snowColor];
+    cell.postTitle.highlightedTextColor = [UIColor turquoiseColor];
+    cell.postDetail.highlightedTextColor = [UIColor turquoiseColor];
+    return cell;
+}
+- (void)configureCell:(postCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    HNPost *post=[self.currentPosts objectAtIndex:indexPath.row];
+    //check if the post exist in readPost array and set the postTitle font accordingly
+    if ([self.readPost containsObject:post.PostId]) {
+        cell.postTitle.font= [UIFont fontWithName:@"AvenirNext-Regular" size:14];
+        cell.postTitle.textColor=[UIColor lightGrayColor];
+    }
+    else{
+        cell.postTitle.font= [UIFont fontWithName:@"AvenirNext-DemiBold" size:14];
+        cell.postTitle.textColor=[UIColor blackColor];
+    }
+    cell.postTitle.text=post.Title;
+    cell.postDetail.text=[NSString stringWithFormat:@"%i points by %@ %@ - %i comments", post.Points, post.Username, post.TimeCreatedString,post.CommentCount];
 
 @end

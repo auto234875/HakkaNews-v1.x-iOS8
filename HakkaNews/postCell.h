@@ -6,10 +6,8 @@
 //  Copyright (c) 2014 John Smith. All rights reserved.
 //
 
-#import "MCSwipeTableViewCell.h"
-
-@interface postCell : MCSwipeTableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *postTitle;
-@property (weak, nonatomic) IBOutlet UILabel *postDetail;
+@interface postCell : UITableViewCell
+@property (weak, nonatomic)UILabel *postTitle;
+@property (weak, nonatomic)UILabel *postDetail;
 
 @end

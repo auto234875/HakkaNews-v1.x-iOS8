@@ -37,7 +37,6 @@
 		1795197E1894CE3F00536C5E /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1795197C1894CE3F00536C5E /* CommentsViewController.m */; };
 		1795198B1894CE7200536C5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1795198A1894CE7200536C5E /* AppDelegate.m */; };
 		17D3BE6A18AED38600A95506 /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D3BE6918AED38600A95506 /* SettingsVC.m */; };
-		17D3BE6D18AEE04E00A95506 /* settingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D3BE6C18AEE04E00A95506 /* settingsCell.m */; };
 		17D3BE7B18AEF65E00A95506 /* DRPocketActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D3BE7A18AEF65E00A95506 /* DRPocketActivity.m */; };
 		17DFD3D818970056000BEF97 /* replyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DFD3D718970056000BEF97 /* replyVC.m */; };
 		5202CAC318CB16AB009A8AE0 /* TUSafariActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5202CAC218CB16AB009A8AE0 /* TUSafariActivity.m */; };
@@ -119,8 +118,6 @@
 		1795198A1894CE7200536C5E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		17D3BE6818AED38600A95506 /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
 		17D3BE6918AED38600A95506 /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
-		17D3BE6B18AEE04E00A95506 /* settingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsCell.h; sourceTree = "<group>"; };
-		17D3BE6C18AEE04E00A95506 /* settingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsCell.m; sourceTree = "<group>"; };
 		17D3BE7918AEF65E00A95506 /* DRPocketActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRPocketActivity.h; sourceTree = "<group>"; };
 		17D3BE7A18AEF65E00A95506 /* DRPocketActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRPocketActivity.m; sourceTree = "<group>"; };
 		17DFD3D618970056000BEF97 /* replyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = replyVC.h; sourceTree = "<group>"; };
@@ -231,15 +228,6 @@
 				17D3BE6918AED38600A95506 /* SettingsVC.m */,
 			);
 			name = SettingsViewController;
-			sourceTree = "<group>";
-		};
-		171532CC18B30B1D00063484 /* settingsCell */ = {
-			isa = PBXGroup;
-			children = (
-				17D3BE6B18AEE04E00A95506 /* settingsCell.h */,
-				17D3BE6C18AEE04E00A95506 /* settingsCell.m */,
-			);
-			name = settingsCell;
 			sourceTree = "<group>";
 		};
 		171532CD18B30B7700063484 /* AppDelegate */ = {
@@ -375,7 +363,6 @@
 		179519911894CFAF00536C5E /* customCell */ = {
 			isa = PBXGroup;
 			children = (
-				171532CC18B30B1D00063484 /* settingsCell */,
 				171532C918B30AF600063484 /* postCell */,
 				171532CA18B30B0100063484 /* commentCell */,
 			);
@@ -657,7 +644,6 @@
 				1795196F1894CE0D00536C5E /* UIColor+Colours.m in Sources */,
 				1749EEBA189DC97E00A0507D /* PocketAPI.m in Sources */,
 				17D3BE7B18AEF65E00A95506 /* DRPocketActivity.m in Sources */,
-				17D3BE6D18AEE04E00A95506 /* settingsCell.m in Sources */,
 				520CF68119F0EB860032EADE /* HNUser.m in Sources */,
 				1795196C1894CE0D00536C5E /* storiesViewController.m in Sources */,
 				520CF68F19F0ED9E0032EADE /* FBShimmeringLayer.m in Sources */,

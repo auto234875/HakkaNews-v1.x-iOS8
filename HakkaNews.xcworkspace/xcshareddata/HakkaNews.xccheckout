@@ -5,24 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>FF26FE11-6362-42E9-8F38-B86EC7E32747</string>
+	<string>41FBE4DC-C445-4A31-A810-C058FBD35AE7</string>
 	<key>IDESourceControlProjectName</key>
 	<string>HakkaNews</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0C75FF676508CDCB44C57D13A6C2C1009D178944</key>
-		<string>https://github.com/auto234875/HakkaNews.git</string>
 		<key>A67990A6B7968672F0EFC0E4DC65D2979296E33D</key>
 		<string>https://github.com/auto234875/HakkaNewsV2.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>HakkaNews.xcodeproj</string>
+	<string>HakkaNews.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0C75FF676508CDCB44C57D13A6C2C1009D178944</key>
-		<string>../../../HakkaNews</string>
 		<key>A67990A6B7968672F0EFC0E4DC65D2979296E33D</key>
-		<string>../..</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/auto234875/HakkaNewsV2.git</string>
@@ -32,14 +28,6 @@
 	<string>A67990A6B7968672F0EFC0E4DC65D2979296E33D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0C75FF676508CDCB44C57D13A6C2C1009D178944</string>
-			<key>IDESourceControlWCCName</key>
-			<string>HakkaNews</string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
