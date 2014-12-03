@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--SubmitVC-->
+        <scene sceneID="TGJ-Du-lPu">
+            <objects>
+                <viewController id="MX6-Cy-XVh" customClass="submitVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QXk-ql-c3P"/>
+                        <viewControllerLayoutGuide type="bottom" id="CRX-69-kQG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XLW-Vp-I8g">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXJ-gF-HE9">
+                                <rect key="frame" x="10" y="129" width="300" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="O8Q-OY-F1R"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tV7-Jf-8r9">
+                                <rect key="frame" x="10" y="96" width="300" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="jf3-Ei-fY8"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MyU-gz-Sji">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="tFr-y1-nW6"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.95583545920000001" green="0.95583545920000001" blue="0.95583545920000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="n6d-xf-P29">
+                                        <barButtonItem key="leftBarButtonItem" title="Discard" id="WmB-8N-ON7">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="cancel:" destination="MX6-Cy-XVh" id="9Ev-Dn-qi3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Submit" id="mtT-wK-aYD">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="submit:" destination="MX6-Cy-XVh" id="xXz-3G-QsZ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M7z-UA-6oS">
+                                <rect key="frame" x="10" y="64" width="300" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="5Dk-a4-HZm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MX6-Cy-XVh" id="xbz-lI-3t9"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="url" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKQ-37-HaK">
+                                <rect key="frame" x="10" y="97" width="300" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="FEO-jC-Mt3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MX6-Cy-XVh" id="lFv-ra-I6u"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="LAG-2M-LUN">
+                                <rect key="frame" x="10" y="130" width="300" height="222"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MX6-Cy-XVh" id="hkQ-sr-OUh"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95583545920000001" green="0.95583545920000001" blue="0.95583545920000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tV7-Jf-8r9" secondAttribute="trailing" constant="10" id="4T7-bA-Mpd"/>
+                            <constraint firstItem="LAG-2M-LUN" firstAttribute="top" secondItem="wKQ-37-HaK" secondAttribute="bottom" constant="1" id="51Q-de-vmR"/>
+                            <constraint firstItem="M7z-UA-6oS" firstAttribute="top" secondItem="MyU-gz-Sji" secondAttribute="bottom" id="5dW-5c-mCE"/>
+                            <constraint firstItem="MXJ-gF-HE9" firstAttribute="leading" secondItem="XLW-Vp-I8g" secondAttribute="leading" constant="10" id="5lI-3S-EUw"/>
+                            <constraint firstItem="tV7-Jf-8r9" firstAttribute="top" secondItem="M7z-UA-6oS" secondAttribute="bottom" id="86N-NU-JQK"/>
+                            <constraint firstItem="M7z-UA-6oS" firstAttribute="leading" secondItem="XLW-Vp-I8g" secondAttribute="leading" constant="10" id="Tjp-Vt-gqd"/>
+                            <constraint firstItem="MyU-gz-Sji" firstAttribute="leading" secondItem="XLW-Vp-I8g" secondAttribute="leading" id="UmD-U8-U53"/>
+                            <constraint firstItem="CRX-69-kQG" firstAttribute="top" secondItem="LAG-2M-LUN" secondAttribute="bottom" constant="216" id="Wew-JS-Jdc"/>
+                            <constraint firstAttribute="trailing" secondItem="wKQ-37-HaK" secondAttribute="trailing" constant="10" id="Xdx-sK-4do"/>
+                            <constraint firstAttribute="trailing" secondItem="MXJ-gF-HE9" secondAttribute="trailing" constant="10" id="YzY-IX-XDQ"/>
+                            <constraint firstItem="wKQ-37-HaK" firstAttribute="top" secondItem="tV7-Jf-8r9" secondAttribute="bottom" id="Zh5-2H-hG6"/>
+                            <constraint firstItem="LAG-2M-LUN" firstAttribute="leading" secondItem="XLW-Vp-I8g" secondAttribute="leading" constant="10" id="aWb-nK-heR"/>
+                            <constraint firstAttribute="trailing" secondItem="M7z-UA-6oS" secondAttribute="trailing" constant="10" id="aax-Ie-CqC"/>
+                            <constraint firstItem="wKQ-37-HaK" firstAttribute="leading" secondItem="XLW-Vp-I8g" secondAttribute="leading" constant="10" id="dj1-R5-01i"/>
+                            <constraint firstItem="MyU-gz-Sji" firstAttribute="top" secondItem="XLW-Vp-I8g" secondAttribute="top" constant="20" id="jxQ-5C-lKF"/>
+                            <constraint firstAttribute="trailing" secondItem="MyU-gz-Sji" secondAttribute="trailing" id="kYB-Wn-vtT"/>
+                            <constraint firstAttribute="trailing" secondItem="LAG-2M-LUN" secondAttribute="trailing" constant="10" id="sR7-7W-cmQ"/>
+                            <constraint firstItem="MXJ-gF-HE9" firstAttribute="top" secondItem="wKQ-37-HaK" secondAttribute="bottom" id="t4W-vQ-czg"/>
+                            <constraint firstItem="tV7-Jf-8r9" firstAttribute="leading" secondItem="XLW-Vp-I8g" secondAttribute="leading" constant="10" id="wkK-Fu-zdw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="discardButton" destination="WmB-8N-ON7" id="08Y-sR-aVY"/>
+                        <outlet property="loginNavBar" destination="MyU-gz-Sji" id="8c8-JU-Wuf"/>
+                        <outlet property="mainText" destination="LAG-2M-LUN" id="BQE-T9-aVa"/>
+                        <outlet property="submissionTitle" destination="M7z-UA-6oS" id="i76-Ko-GHv"/>
+                        <outlet property="submitBar" destination="n6d-xf-P29" id="EVL-Ke-mSI"/>
+                        <outlet property="submitButton" destination="mtT-wK-aYD" id="YO5-XU-FGd"/>
+                        <outlet property="url" destination="wKQ-37-HaK" id="hQ0-FJ-6KJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHz-L0-tBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1650" y="-607"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
